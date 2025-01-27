@@ -12,9 +12,10 @@
       display: flex;
       flex-direction: column;
       align-items: center;
-      justify-content: center;
+      justify-content: flex-start;
       height: 100vh;
       margin: 0;
+      padding: 20px;
     }
 
     .logo {
@@ -27,6 +28,7 @@
       display: flex;
       justify-content: center;
       width: 100%;
+      margin-bottom: 20px;
     }
 
     input[type="text"] {
@@ -59,8 +61,22 @@
 <body>
   <img src="image.png" alt="Browser Logo" class="logo">
   <div class="search-box">
-    <input type="text" placeholder="Search...">
-    <input type="submit" value="Search">
+    <input type="text" id="searchInput" placeholder="Search...">
+    <input type="submit" id="searchButton" value="Search">
   </div>
+
+  <script>
+    const searchButton = document.getElementById('searchButton');
+    const searchInput = document.getElementById('searchInput');
+
+    searchButton.addEventListener('click', () => {
+      const query = searchInput.value.trim();
+      if (query) {
+        // Redirect to Bing with the search query
+        const bingSearchUrl = `https://www.bing.com/search?q=${encodeURIComponent(query)}`;
+        window.location.href = bingSearchUrl;
+      }
+    });
+  </script>
 </body>
 </html>
