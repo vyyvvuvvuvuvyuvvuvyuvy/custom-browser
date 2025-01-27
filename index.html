@@ -56,6 +56,36 @@
       background-color: #004d00;
       color: #00ff00;
     }
+
+    .results {
+      width: 50%;
+      background-color: #002600;
+      border: 2px solid #00ff00;
+      border-radius: 5px;
+      padding: 10px;
+      margin-top: 20px;
+      overflow-y: auto;
+      max-height: 300px;
+    }
+
+    .result-item {
+      margin: 10px 0;
+      padding: 10px;
+      border-bottom: 1px solid #00ff00;
+    }
+
+    .result-item:last-child {
+      border-bottom: none;
+    }
+
+    .result-item a {
+      color: #00ff00;
+      text-decoration: none;
+    }
+
+    .result-item a:hover {
+      text-decoration: underline;
+    }
   </style>
 </head>
 <body>
@@ -64,17 +94,31 @@
     <input type="text" id="searchInput" placeholder="Search...">
     <input type="submit" id="searchButton" value="Search">
   </div>
+  <div class="results" id="resultsContainer"></div>
 
   <script>
     const searchButton = document.getElementById('searchButton');
     const searchInput = document.getElementById('searchInput');
+    const resultsContainer = document.getElementById('resultsContainer');
 
     searchButton.addEventListener('click', () => {
       const query = searchInput.value.trim();
       if (query) {
-        // Redirect to Bing with the search query
-        const bingSearchUrl = `https://www.bing.com/search?q=${encodeURIComponent(query)}`;
-        window.location.href = bingSearchUrl;
+        // Simulate results (replace this with actual API call if needed)
+        const results = [
+          { title: `Result for "${query}" - 1`, url: 'https://example.com/1' },
+          { title: `Result for "${query}" - 2`, url: 'https://example.com/2' },
+          { title: `Result for "${query}" - 3`, url: 'https://example.com/3' }
+        ];
+
+        // Display results
+        resultsContainer.innerHTML = results.map(result => `
+          <div class="result-item">
+            <a href="${result.url}" target="_blank">${result.title}</a>
+          </div>
+        `).join('');
+        
+        searchInput.value = '';
       }
     });
   </script>
