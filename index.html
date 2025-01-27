@@ -6,8 +6,8 @@
   <title>Custom Search Engine</title>
   <style>
     body {
-      background-color: #001a00;
-      color: #00ff00;
+      background-color: #101010; /* Dark background */
+      color: #00ff00; /* Green text */
       font-family: Arial, sans-serif;
       display: flex;
       flex-direction: column;
@@ -19,7 +19,7 @@
     }
 
     .logo {
-      width: 200px;
+      width: 150px;
       height: auto;
       margin-bottom: 20px;
     }
@@ -39,6 +39,7 @@
       outline: none;
       font-size: 16px;
       color: #001a00;
+      background-color: #1a1a1a; /* Dark background for input field */
     }
 
     input[type="submit"] {
@@ -59,7 +60,7 @@
 
     .results {
       width: 50%;
-      background-color: #002600;
+      background-color: #222222; /* Dark grey background for results */
       border: 2px solid #00ff00;
       border-radius: 5px;
       padding: 10px;
@@ -86,15 +87,24 @@
     .result-item a:hover {
       text-decoration: underline;
     }
+
+    .firefox-theme {
+      background-color: #000000; /* Firefox-like black theme */
+      border: 3px solid #ff6600; /* Firefox orange border */
+      padding: 10px;
+      border-radius: 15px;
+    }
   </style>
 </head>
 <body>
-  <img src="image.png" alt="Browser Logo" class="logo">
-  <div class="search-box">
-    <input type="text" id="searchInput" placeholder="Search...">
-    <input type="submit" id="searchButton" value="Search">
+  <div class="firefox-theme">
+    <img src="image.png" alt="Browser Logo" class="logo">
+    <div class="search-box">
+      <input type="text" id="searchInput" placeholder="Search...">
+      <input type="submit" id="searchButton" value="Search">
+    </div>
+    <div class="results" id="resultsContainer"></div>
   </div>
-  <div class="results" id="resultsContainer"></div>
 
   <script>
     const searchButton = document.getElementById('searchButton');
@@ -124,4 +134,3 @@
   </script>
 </body>
 </html>
-
